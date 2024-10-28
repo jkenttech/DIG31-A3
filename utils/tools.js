@@ -19,7 +19,7 @@ export class Logger{
         this.CRT = 1;
     }
 
-    log(level, string){
+    write(level, string){
         if(level == this.TST){ this.colour = testColour; }
         if(level == this.DBG){ this.colour = debugColour; }
         if(level == this.INF){ this.colour = informationColour; }
@@ -32,12 +32,12 @@ export class Logger{
 }
 
 (function logger_test(){
-    let logger = new Logger();
-    logger.log(logger.TST, `Testing log levels`);
-    logger.log(logger.INF, `INF log level`);
-    logger.log(logger.DBG, `DBG log level`);
-    logger.log(logger.WRN, `WRN log level`);
-    logger.log(logger.ERR, `ERR log level`);
-    logger.log(logger.CRT, `CRT log level`);
+    let log = new Logger();
+    log.write(log.TST, `Testing log levels`);
+    log.write(log.INF, `INF log level`);
+    log.write(log.DBG, `DBG log level`);
+    log.write(log.WRN, `WRN log level`);
+    log.write(log.ERR, `ERR log level`);
+    log.write(log.CRT, `CRT log level`);
 })();
 
