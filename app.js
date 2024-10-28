@@ -8,12 +8,13 @@ export const router = express.Router();
 export const _log = new Logger();
 
 const PORT = _config.port;
+const IP = _config.ip;
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.listen(PORT, ()=>{
-    console.log(`app running on port ${PORT}`);
+app.listen(PORT, IP, ()=>{
+    _log.write(_log.INF, `app listening on ${PORT}`);
 
     // Root endpoints
     app.use(_config.rootEndpoint, _rootRoute);
