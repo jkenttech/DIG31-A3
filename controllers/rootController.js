@@ -1,6 +1,6 @@
-import { Logger as _log } from '../utils/tools.js';
+import { _log } from '../app.js';
 
-export function root(req, res, endpoint){
-    _log.write(_log.TST, "root test");
+export function root(req, res, method, endpoint){
+    _log.write(_log.INF, `${method} ${endpoint}`);
     res.send(endpoint);
 }

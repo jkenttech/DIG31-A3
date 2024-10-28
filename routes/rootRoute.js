@@ -5,7 +5,7 @@ import * as _controller from '../controllers/rootController.js';
 export const router = express.Router();
 
 router.get(_config.rootEndpoint, (req, res)=>{
-    _controller.root(req, res, _config.rootEndpoint);
+    _controller.root(req, res, "[GET]", _config.rootEndpoint);
 });
 
 router.get(_config.api(_config.rootEndpoint), (req, res)=>{

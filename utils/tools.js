@@ -11,12 +11,12 @@ export class Logger{
     constructor(){
 	this.white = white;
 	this.colour = colour;
-	this.TST = 6;
-        this.DBG = 5;
-        this.INF = 4;
-        this.WRN = 3;
-        this.ERR = 2;
-        this.CRT = 1;
+	this.TST = "TST";
+        this.DBG = "DBG";
+        this.INF = "INF";
+        this.WRN = "WRN";
+        this.ERR = "ERR";
+        this.CRT = "CRT";
     }
 
     write(level, string){
@@ -33,9 +33,9 @@ export class Logger{
 
 (function logger_test(){
     let log = new Logger();
-    log.write(log.TST, `Testing log levels`);
-    log.write(log.INF, `INF log level`);
+    log.write(log.TST, `TST log level`);
     log.write(log.DBG, `DBG log level`);
+    log.write(log.INF, `INF log level`);
     log.write(log.WRN, `WRN log level`);
     log.write(log.ERR, `ERR log level`);
     log.write(log.CRT, `CRT log level`);
