@@ -1,12 +1,17 @@
-import express from 'express'
+import express from 'express';
+import * as _config from './utils/config.js';
+import { router as _rootRoute } from './routes/rootRoute.js';
 
 const app = express();
-const port = 3000;
+export const router = express.Router();
 
-app.get('/', (req, res)=>{
-    res.send("running express app");
+const PORT = _config.port;
+
+app.listen(PORT, ()=>{
+    console.log(`app running on port ${PORT}`);
+
+    // Root endpoints
+    app.use(_config.rootEndpoint, _rootRoute);
+    app.use(_config.api(_config.rootEndpoint), _rootRoute);
 });
 
-app.listen(port, () =>{
-    console.log(`app running on port ${port}`);
-});
