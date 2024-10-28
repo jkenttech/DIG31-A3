@@ -9,6 +9,9 @@ export const _log = new Logger();
 
 const PORT = _config.port;
 
+app.set('views', './views');
+app.set('view engine', 'ejs');
+
 app.listen(PORT, ()=>{
     console.log(`app running on port ${PORT}`);
 
