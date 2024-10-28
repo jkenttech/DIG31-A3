@@ -1,3 +1,5 @@
+/* global console */
+
 let white = "0m";
 let colour = white;
 let testColour = "0m";
