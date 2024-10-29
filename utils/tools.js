@@ -32,7 +32,7 @@ export class Logger{
     }
 
     write_request(req){
-	this.write(this.INF, `${req.method} ${req.path} ${req.ip}`);
+	this.write(this.INF, `${req.method} ${req.baseUrl}${req.path} ${req.ip}`);
     }
 }
 
