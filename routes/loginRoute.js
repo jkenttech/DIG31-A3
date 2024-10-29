@@ -5,11 +5,20 @@ import * as _apiController from '../controllers/rootApiController.js';
 
 export const router = express.Router();
 
+////////////////////
+// Root endpoints //
 router.get(_config.rootEndpoint, (req, res)=>{
     _controller.root(req, res);
 });
 
+router.post(_config.rootEndpoint, (req, res)=>{
+    _controller.root(req, res);
+});
+
+// API
 router.get(_config.api(_config.rootEndpoint), (req, res)=>{
     _apiController.root(req, res);
 });
+// Root endpoints //
+////////////////////////
 

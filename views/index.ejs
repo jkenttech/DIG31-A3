@@ -1,5 +1,20 @@
 <html>
     <body>
         <p>Logbook</p>
+	<nav>
+	    <a href="/">[GET] /</a><br>
+	    <a href="/login">[GET] /login</a><br>
+	    <form id="login-form" action="/login" method="POST">
+	        <a href="#" onclick="loginSubmit()">
+                    [POST] /login
+                </a> 
+            </form> 
+  
+            <script> 
+                function loginSubmit() { 
+                    document.getElementById("login-form").submit(); 
+                } 
+            </script> 
+	</nav>
     </body>
 </html>
