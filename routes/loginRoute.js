@@ -20,5 +20,5 @@ router.get(_config.api(_config.rootEndpoint), (req, res)=>{
     _apiController.root(req, res);
 });
 // Root endpoints //
-////////////////////////
+////////////////////
 
