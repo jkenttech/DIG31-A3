@@ -1,5 +1,21 @@
 <html>
     <body>
-        <p>Login</p>
+	<h1>Login</h1>
+
+        <form action="/login" method="post">
+	    <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br>
+	    <% if(errors["login"]){ %>
+	        <p><%= errors["login"] %></p>
+	    <% } %>
+
+	    <label for="password">password:</label><br>
+            <input type="text" id="password" name="password"><br>
+	    <% if(errors["password"]){ %>
+	        <p><%= errors["password"] %></p>
+	    <% } %>
+
+	    <input type="submit" value="Login">
+	</form>
     </body>
 </html>
