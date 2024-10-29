@@ -31,6 +31,9 @@ export class Logger{
         console.log(`\x1b[${this.colour}${level} ${new Date().toString().split(" GMT")[0]} ${string}\x1b[${this.white}`);
     }
 
+    write_request(req){
+	this.write(this.INF, `${req.method} ${req.path} ${req.ip}`);
+    }
 }
 
 (function logger_test(){
