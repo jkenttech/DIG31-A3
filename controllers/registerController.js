@@ -1,5 +1,5 @@
 import { _log } from '../app.js';
-import { _config } from '../utils/config.js';
+import * as _config from '../utils/config.js';
 
 export function root(req, res){
     _log.write_request(req);
