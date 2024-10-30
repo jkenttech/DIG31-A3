@@ -2,6 +2,7 @@ import express from 'express';
 import * as _config from './utils/config.js';
 import { router as _rootRoute } from './routes/rootRoute.js';
 import { router as _loginRoute } from './routes/loginRoute.js';
+import { router as _registerRoute } from './routes/registerRoute.js';
 import { Logger } from './utils/tools.js';
 
 const app = express();
@@ -26,5 +27,10 @@ app.listen(PORT, IP, ()=>{
     _log.write(_log.DBG, `Available root endpoints: {\n\t${_config.loginEndpoint}\n\t${_config.api(_config.loginEndpoint)}\n}`);
     app.use(_config.loginEndpoint, _loginRoute);
     app.use(_config.api(_config.loginEndpoint), _loginRoute);
+
+    // Register endpoints
+    _log.write(_log.DBG, `Available root endpoints: {\n\t${_config.registerEndpoint}\n\t${_config.api(_config.registerEndpoint)}\n}`);
+    app.use(_config.registerEndpoint, _registerRoute);
+    app.use(_config.api(_config.registerEndpoint), _registerRoute);
 });
 

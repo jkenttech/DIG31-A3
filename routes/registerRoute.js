@@ -1,7 +1,7 @@
 import express from 'express';
 import * as _config from '../utils/config.js';
-import * as _controller from '../controllers/loginController.js';
-import * as _apiController from '../controllers/loginApiController.js';
+import * as _controller from '../controllers/registerController.js';
+import * as _apiController from '../controllers/registerApiController.js';
 
 export const router = express.Router();
 

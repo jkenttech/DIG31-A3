@@ -2,10 +2,13 @@
     <body>
         <p>Logbook</p>
 	<table>
+	<!-- Root -->
 	<tr>
 	    <td><a href="/">[GET] /</a></td>
 	    <td><a href="/api">[GET] /api/</a></td>
 	</tr>
+
+	<!-- Login -->
 	<tr>
 	    <td><a href="/login">[GET] /login</a></td>
 	    <td><a href="/api/login">[GET] /api/login</a><td>
@@ -18,15 +21,37 @@
 	        <a href="#" onclick="loginApiSubmit()">[POST] /api/login</a> 
 	    </form></td>
 	</tr>
+        <script> 
+            function loginSubmit() { 
+                document.getElementById("login-form").submit(); 
+            } 
+            function loginApiSubmit() { 
+                document.getElementById("login-api-form").submit(); 
+            } 
+        </script> 
+
+        <!-- Register -->
+	<tr>
+	    <td><a href="/register">[GET] /register</a></td>
+	    <td><a href="/api/register">[GET] /api/register</a><td>
+	</tr>
+	<tr>
+	    <td><form id="register-form" action="/register" method="POST">
+	        <a href="#" onclick="registerSubmit()">[POST] /register</a> 
+	    </form></td>
+	    <td><form id="register-api-form" action="/api/register" method="POST">
+	        <a href="#" onclick="registerApiSubmit()">[POST] /api/register</a> 
+	    </form></td>
+	</tr>
   
-            <script> 
-                function loginSubmit() { 
-                    document.getElementById("login-form").submit(); 
-                } 
-                function loginApiSubmit() { 
-                    document.getElementById("login-api-form").submit(); 
-                } 
-            </script> 
+        <script> 
+            function registerSubmit() { 
+                document.getElementById("register-form").submit(); 
+            } 
+            function registerApiSubmit() { 
+                document.getElementById("register-api-form").submit(); 
+            } 
+        </script> 
 	</table>
     </body>
 </html>
