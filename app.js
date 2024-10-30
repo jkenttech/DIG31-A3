@@ -1,4 +1,8 @@
+// external imports
 import express from 'express';
+import bodyParser from 'body-parser';
+
+// local imports
 import * as _config from './utils/config.js';
 import { router as _rootRoute } from './routes/rootRoute.js';
 import { router as _loginRoute } from './routes/loginRoute.js';
@@ -14,6 +18,7 @@ const IP = _config.ip;
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
+app.use(bodyParser());
 
 app.listen(PORT, IP, ()=>{
     _log.write(_log.INF, `app listening on ${PORT}`);
