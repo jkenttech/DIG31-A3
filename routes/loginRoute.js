@@ -12,7 +12,7 @@ router.get(_config.rootEndpoint, (req, res)=>{
 });
 
 router.post(_config.rootEndpoint, (req, res)=>{
-    _controller.root(req, res);
+    _controller.root_post(req, res);
 });
 
 // API

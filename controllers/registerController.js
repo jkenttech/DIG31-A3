@@ -4,9 +4,6 @@ import * as _config from '../utils/config.js';
 export function root(req, res){
     _log.write_request(req);
     let messages = { };
-    messages.login = "No login provided";
-    messages.password = "No password provided";
-    messages.passwordConfirm = "No passwordConfirm provided";
     res.render('register', { errors: messages });
 }
 
@@ -16,19 +13,19 @@ export function root_post(req, res){
 
     let messages = { };
     if(!req.body.email){
-	_log.write(_log.ERR, "No email provided");
         messages.email = "No email provided";
+	_log.write(_log.ERR, messages.email);
     };
     if(!req.body.password){
-	_log.write(_log.ERR, "No password provided");
         messages.password = "No password provided";
+	_log.write(_log.ERR, messages.password);
     };
     if(!req.body.passwordConfirm){
-	_log.write(_log.ERR, "Reenter the password");
         messages.passwordConfirm = "Reenter the password";
+	_log.write(_log.ERR, messages.passwordConfirm);
     } else if(req.body.passwordConfirm != req.body.password){
-	_log.write(_log.ERR, "Passwords do not match");
         messages.passwordConfirm = "Passwords do not match";
+	_log.write(_log.ERR, messages.passwordConfirm);
     };
 
     _log.write(_log.DBG, `length of messages is ${Object.keys(messages).length}`);
