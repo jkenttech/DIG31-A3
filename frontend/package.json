@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@polymer/lit-element": "^0.7.1",
     "gsap": "^3.12.5",
     "lit-html": "^3.2.1",
     "moment": "^2.30.1",

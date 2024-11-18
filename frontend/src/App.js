@@ -1,6 +1,5 @@
 import Router from './Router'
 
-
 class App {
   constructor(){
     this.name = "Simple Logbook"
