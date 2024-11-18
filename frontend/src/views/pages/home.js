@@ -12,6 +12,7 @@ class HomeView {
 
   render(){
     const template = html`
+      <va-app-header title="Home"></va-app-header>
       
       <div class="page-content">
 

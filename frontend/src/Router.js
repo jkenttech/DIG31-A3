@@ -1,11 +1,13 @@
 // import views
 import homeView from './views/pages/home'
 import fourOFourView from './views/pages/404'
+import signupView from './views/pages/signup'
 
 // define routes
 const routes = {
 	'/': homeView,	
 	'404' : fourOFourView,
+	'/signup': signupView,	
 }
 
 class Router {
