@@ -2,5 +2,19 @@
 
 .signup-box{
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 10%;
+
+  .left{
+    display: grid;
+  }
+
+  img{
+    max-width: 70%;
+    min-width: 50%;
+    align-self: center;
+    justify-self: end;
+    margin-right: 2%;
+  }
 }
 
