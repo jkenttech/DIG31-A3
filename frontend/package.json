@@ -14,6 +14,7 @@
     "gsap": "^3.12.5",
     "lit-html": "^3.2.1",
     "moment": "^2.30.1",
+    "parcel-plugin-static-files-copy": "^2.5.0",
     "scss": "^0.2.4"
   },
   "devDependencies": {
