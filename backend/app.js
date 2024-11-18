@@ -1,5 +1,8 @@
 // external imports
 import express from 'express';
+import cors from 'cors';
+import bodyparser from 'body-parser';
+import formData from 'express-form-data';
 
 // local imports
 import * as _config from './utils/config.js';
@@ -11,6 +14,7 @@ export const router = express.Router();
 
 // setup routes
 import { router as _rootRoute } from './routes/rootRoute.js';
+import { router as _userRoute } from './routes/userRoute.js';
 
 const _port = _config.port;
 const _ip = _config.ip;
@@ -18,13 +22,12 @@ const _ip = _config.ip;
 app.listen(_port, _ip, ()=>{
     _log.write(_log.INF, `app listening on ${_ip}:${_port}`);
 
-    // list available endpoints in debug log
-    let endpoints = 'Available endpoints: {\n';
-    endpoints += `\t${_config.rootEndpoint} [GET]\n`;
-    endpoints += '}';
-    _log.write(_log.DBG, `${endpoints}`);
-
+    app.use(formData.parse());
+    app.use(bodyparser.urlencoded({extended: false}));
+    app.use(bodyparser.json());
+    app.use('*', cors());
     app.use(_config.rootEndpoint, _rootRoute);
+    app.use(_config.userEndpoint, _userRoute);
 
     // throw 404 if no route is found
     app.use((req, res)=>{ res.status(404).send('404') });
