@@ -7,6 +7,7 @@ class HomeView {
     console.log('HomeView.init')
     document.title = 'Home'    
     this.render()    
+    Utils.pageIntroAnim()    
   }
 
   render(){
@@ -14,7 +15,11 @@ class HomeView {
       
       <div class="page-content">
 
-          <p>Home content</p>
+        <h3>Button example:</h3>
+        <sl-button class="anim-in" @click=${() => gotoRoute('/profile')}>View Profile</sl-button>
+        <p>&nbsp;</p>
+        <h3>Link example</h3>
+        <a href="/profile" @click=${anchorRoute}>View Profile</a>
         
       </div>
      

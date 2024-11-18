@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "parcel src/index.html --port 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "lit-html": "^3.2.1"
+    "gsap": "^3.6.0",
+    "lit-html": "^3.2.1",
+    "moment": "^2.30.1",
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
