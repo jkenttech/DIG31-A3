@@ -4,4 +4,11 @@
     "email": "number@one.com",
     "password": "123456",
     "avatar": ""
+},
+{
+    "firstName": "Second",
+    "lastName": "2",
+    "email": "number@two.com",
+    "password": "234567",
+    "avatar": ""
 }]
