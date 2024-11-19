@@ -8,6 +8,7 @@ export const rootEndpoint = "/";
 export const userEndpoint = "/user";
 export const authEndpoint = "/auth";
 export const vehicleEndpoint = "/vehicle";
+export const tripEndpoint = "/trip";
 
 // DB Connection string
 const dbUser = "logbookUser";
