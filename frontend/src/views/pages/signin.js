@@ -1,7 +1,7 @@
 import App from './../../App'
 import {html, render } from 'lit-html'
 import {anchorRoute, gotoRoute} from './../../Router'
-import Auth from './../../Auth'
+import { Auth } from './../../Auth'
 import  { Utils } from './../../Utils'
 
 class SignInView {

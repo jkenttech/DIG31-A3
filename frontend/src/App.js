@@ -1,4 +1,5 @@
 import Router from './Router'
+import { Auth } from './Auth'
 
 class App {
   constructor(){
@@ -12,7 +13,11 @@ class App {
   init() { 
     console.log("App.init")
     
-    Router.init()
+    // Authentication check    
+    Auth.check(() => {
+      // authenticated! init Router
+      Router.init()
+    })    
   }
 }
 

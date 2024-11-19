@@ -3,13 +3,13 @@ import Router, { gotoRoute } from './Router'
 import {html, render } from 'lit-html'
 import splash from './views/partials/splash'
 
-class Auth {
+export class Auth {
 
   constructor(){
     this.currentUser = {}
   }
   
-  async signUp(userData, fail = false){  
+  static async signUp(userData, fail = false){  
     const response = await fetch(`${App.apiBase}/user`, {
       method: 'POST',      
       body: userData
@@ -30,7 +30,7 @@ class Auth {
   }
 
 
-  async signIn(userData, fail = false){
+  static async signIn(userData, fail = false){
     const response = await fetch(`${App.apiBase}/auth/signin`, {
       method: 'POST',      
       body: userData
@@ -59,7 +59,7 @@ class Auth {
   }
 
 
-  async check(success){
+  static async check(success){
     // show splash screen while loading ...   
     render(splash, App.rootEl)
     
@@ -100,7 +100,7 @@ class Auth {
     success()
   }
 
-  signOut(){
+  static signOut(){
     // delete local token
     localStorage.removeItem('accessToken')       
     // redirect to sign in    
@@ -109,5 +109,3 @@ class Auth {
     this.currentUser = null
   }
 }
-
-export default new Auth()
