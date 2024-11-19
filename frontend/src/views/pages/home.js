@@ -25,17 +25,44 @@ class HomeView {
   }
 
   render_vehicles(vehicles){
+    let tempImg = "https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80";
     let vehicleInfo;
     if(Object.keys(vehicles).length > 0){
-      vehicleInfo = html`<table>
-      ${this.vehicles.map((vehicle)=>html`
-        <tr>
-        <td>${vehicle.registration}</td>
-        <td>${vehicle.make}</td>
-        <td>${vehicle.model}</td>
-        </tr>
+      vehicleInfo = html`
+        ${this.vehicles.map((vehicle)=>html`
+          <sl-card class="card-overview">
+            <img
+              slot="image"
+              src="${tempImg}"
+            />
+
+            <strong>${vehicle.registration}</strong><br />
+            ${vehicle.make}<br />
+            ${vehicle.model}<br />
+
+            <div slot="footer">
+              <sl-button variant="primary" @click=${() => gotoRoute(`/trip/${vehicle.registration}`)} pill>Add Trip</sl-button>
+              <sl-button variant="secondary" @click=${() => gotoRoute(`/trips/${vehicle.registration}`)} pill>View Trips</sl-button>
+            </div>
+          </sl-card>
+
+          <style>
+            .card-overview {
+              max-width: 300px;
+            }
+
+            .card-overview small {
+              color: var(--sl-color-neutral-500);
+            }
+
+            .card-overview [slot='footer'] {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+          </style>
         `)}
-        </table>`
+      `
     } else {
       vehicleInfo = html`<p>No vehicles to display</p>`
     }
@@ -47,12 +74,6 @@ class HomeView {
       <va-app-header title="Home"></va-app-header>
       
       <div class="page-content">
-
-        <h3>Button example:</h3>
-        <sl-button class="anim-in" @click=${() => gotoRoute('/profile')}>View Profile</sl-button>
-        <p>&nbsp;</p>
-        <h3>Link example</h3>
-        <a href="/profile" @click=${anchorRoute}>View Profile</a>
 
         ${this.render_vehicles(this.vehicles)}
         
