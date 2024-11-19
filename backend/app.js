@@ -11,9 +11,15 @@ import * as _config from './utils/config.js';
 import { Logger } from './utils/tools.js';
 export const _log = new Logger();
 import { User } from './models/User.js';
+import { Vehicle } from './models/Vehicle.js';
 
+
+// variables
 const app = express();
 export const router = express.Router();
+const seedUserData = "./seeddata/seedUsers.json";
+const seedVehicleData = "./seeddata/seedVehicles.json";
+const seedTripData = "./seeddata/seedTrips.json";
 
 // setup routes
 import { router as _rootRoute } from './routes/root.js';
@@ -45,17 +51,26 @@ mongoose.connect(_config.dbConnectionString)
 
 async function seedDB(){
     let dbUsers = await User.find({});
-    if(dbUsers == ""){
-        await seedUsers();
-    } else {
-        _log.write(_log.DBG, "Database not seeded.");
-    }
+    dbUsers == "" ? await seedUsers() : _log.write(_log.DBG, "Users not seeded.");
+
+    let dbVehicles = await Vehicle.find({});
+    dbVehicles == "" ? await seedVehicles() : _log.write(_log.DBG, "Vehicles not seeded.");
 }
 
 async function seedUsers(){
-    let seedUsers = JSON.parse(readFileSync("./SeedUsers.json"));
+    let seedUsers = JSON.parse(readFileSync(seedUserData));
     seedUsers.forEach(async (user) => {
         await User.create(user);
     });
-    _log.write(_log.INF, "Database seeded.");
+    _log.write(_log.INF, "Users seeded.");
 }
+
+async function seedVehicles(){
+    let seedVehicles = JSON.parse(readFileSync(seedVehicleData));
+    seedVehicles.forEach(async (vehicle) => {
+        await Vehicle.create(vehicle);
+    });
+    _log.write(_log.INF, "Vehicles seeded.");
+}
+
+async function seedTrips(){}
