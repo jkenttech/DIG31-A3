@@ -1,4 +1,4 @@
-L?port App from './App'
+import App from './App'
 import {html, render } from 'lit-html'
 import { gsap } from 'gsap'
 

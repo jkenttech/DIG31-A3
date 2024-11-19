@@ -18,7 +18,6 @@ class SignUpView{
     const submitBtn = document.querySelector('.submit-btn')
     submitBtn.setAttribute('loading', '')    
     const formData = e.detail.formData
-    console.log(...formData);
     
     // sign up using Auth
     Auth.signUp(formData, () => {
