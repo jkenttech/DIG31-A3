@@ -1,6 +1,7 @@
 import App from './../../App'
 import { html, render } from 'lit-html'
-import {gotoRoute, anchorRoute } from './../../Router'
+import { gotoRoute, anchorRoute } from './../../Router'
+import { Utils } from '../../Utils'
 
 class HomeView {
   init(){    
