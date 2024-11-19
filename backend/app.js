@@ -16,8 +16,8 @@ const app = express();
 export const router = express.Router();
 
 // setup routes
-import { router as _rootRoute } from './routes/rootRoute.js';
-import { router as _userRoute } from './routes/userRoute.js';
+import { router as _rootRoute } from './routes/root.js';
+import { router as _userRoute } from './routes/user.js';
 
 const _port = _config.port;
 const _ip = _config.ip;
