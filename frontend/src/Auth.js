@@ -29,6 +29,27 @@ export class Auth {
     gotoRoute('/signin')
   }
 
+  static async addVehicle(userData, fail = false){  
+    userData.append("email", Auth.currentUser.email);
+    const response = await fetch(`${App.apiBase}/vehicle`, {
+      method: 'POST',      
+      body: userData
+    })
+
+      // if response not ok
+    if(!response.ok){      
+      // console log error
+      const err = await response.json()
+      if(err) console.log(err)
+      // show error      
+      // run fail() functon if set
+      if(typeof fail == 'function') fail()
+    }
+    /// sign up success - show toast and redirect to sign in page
+    // redirect to signin
+    gotoRoute('/')
+  }
+
 
   static async signIn(userData, fail = false){
     const response = await fetch(`${App.apiBase}/auth/signin`, {

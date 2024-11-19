@@ -45,26 +45,10 @@ class HomeView {
               <sl-button variant="secondary" @click=${() => gotoRoute(`/trips/${vehicle.registration}`)} pill>View Trips</sl-button>
             </div>
           </sl-card>
-
-          <style>
-            .card-overview {
-              max-width: 300px;
-            }
-
-            .card-overview small {
-              color: var(--sl-color-neutral-500);
-            }
-
-            .card-overview [slot='footer'] {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            }
-          </style>
         `)}
       `
     } else {
-      vehicleInfo = html`<p>No vehicles to display</p>`
+      vehicleInfo = html`<strong>No vehicles to display</strong>`
     }
     return vehicleInfo;
   }
@@ -76,6 +60,8 @@ class HomeView {
       <div class="page-content">
 
         ${this.render_vehicles(this.vehicles)}
+        <br><br>
+        <sl-button variant="primary" @click=${() => gotoRoute(`/addVehicle`)} pill>Add Vehicle</sl-button>
         
       </div>
      
