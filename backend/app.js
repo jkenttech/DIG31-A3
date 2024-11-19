@@ -41,12 +41,19 @@ mongoose.connect(_config.dbConnectionString)
 }))
 .catch((error)=>{ _log.write(_log.CRT, `${error}\nExiting application.`) });
 
-function seedDB(){
-    let seedUsers = JSON.parse(readFileSync("./SeedUsers.json"));
+async function seedDB(){
+    let dbUsers = await User.find({});
+    if(dbUsers == ""){
+        await seedUsers();
+    } else {
+        _log.write(_log.DBG, "Database not seeded.");
+    }
+}
 
+async function seedUsers(){
+    let seedUsers = JSON.parse(readFileSync("./SeedUsers.json"));
     seedUsers.forEach(async (user) => {
         await User.create(user);
     });
-
     _log.write(_log.INF, "Database seeded.");
 }
