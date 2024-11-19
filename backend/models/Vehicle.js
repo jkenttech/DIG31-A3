@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema
-import { Utils } from '../utils/tools.js';
 
 // schema
 const vehicleSchema = new mongoose.Schema({

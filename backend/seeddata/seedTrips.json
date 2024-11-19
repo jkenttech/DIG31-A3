@@ -1,0 +1,36 @@
+[{
+    "registration": "GR34T",
+    "email": "number@one.com",
+    "startDate": "2024-11-10T16:00:00Z",
+    "finishDate": "2024-11-10T16:10:00Z",
+    "startAddress": "Camperdown, NSW",
+    "finishAddress": "Summer Hill, NSW",
+    "startOdometerReading": "1004",
+    "finishOdometerReading": "1009",
+    "startPhoto": "",
+    "finishPhoto": ""
+},
+{
+    "registration": "GR34T",
+    "email": "number@one.com",
+    "startDate": "2024-11-15T08:00:00Z",
+    "finishDate": "2024-11-15T10:00:00Z",
+    "startAddress": "Summer Hill, NSW",
+    "finishAddress": "Islington, NSW",
+    "startOdometerReading": "1050",
+    "finishOdometerReading": "1214",
+    "startPhoto": "",
+    "finishPhoto": ""
+},
+{
+    "registration": "N1NJ4",
+    "email": "number@two.com",
+    "startDate": "2024-11-17T19:30:00Z",
+    "finishDate": "2024-11-17T19:50:00Z",
+    "startAddress": "Richmond, VIC",
+    "finishAddress": "Sandringham, VIC",
+    "startOdometerReading": "15000",
+    "finishOdometerReading": "15013",
+    "startPhoto": "",
+    "finishPhoto": ""
+}]

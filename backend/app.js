@@ -12,6 +12,7 @@ import { Logger } from './utils/tools.js';
 export const _log = new Logger();
 import { User } from './models/User.js';
 import { Vehicle } from './models/Vehicle.js';
+import { Trip } from './models/Trip.js';
 
 
 // variables
@@ -55,6 +56,9 @@ async function seedDB(){
 
     let dbVehicles = await Vehicle.find({});
     dbVehicles == "" ? await seedVehicles() : _log.write(_log.DBG, "Vehicles not seeded.");
+
+    let dbTrips = await Trip.find({});
+    dbTrips == "" ? await seedTrips() : _log.write(_log.DBG, "Trips not seeded.");
 }
 
 async function seedUsers(){
@@ -73,4 +77,10 @@ async function seedVehicles(){
     _log.write(_log.INF, "Vehicles seeded.");
 }
 
-async function seedTrips(){}
+async function seedTrips(){
+    let seedTrips = JSON.parse(readFileSync(seedTripData));
+    seedTrips.forEach(async (trip) => {
+        await Trip.create(trip);
+    });
+    _log.write(_log.INF, "Trips seeded.");
+}
