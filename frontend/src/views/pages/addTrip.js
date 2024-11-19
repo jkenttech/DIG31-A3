@@ -29,10 +29,10 @@ class AddTripView{
     const template = html`      
     <va-app-header title="Home"></va-app-header>
     <div>
-        <h1>Add Trip</h1>
+        <h1>Add Trip for ${window.location.search.substring(1)}</h1>
         <sl-form class="form-signup" @sl-submit=${this.addTripSubmitHandler}>
             <div class="input-group">
-            <sl-input name="registration" type="text" placeholder="Registration" required></sl-input>
+            <sl-input name="registration" type="text" value"${window.location.search.substring(1)}" required hidden disabled></sl-input>
             </div>
             <div class="input-group">
             <sl-input name="startAddress" type="text" placeholder="Start Address" required></sl-input>

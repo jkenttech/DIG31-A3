@@ -41,8 +41,8 @@ class HomeView {
             ${vehicle.model}<br />
 
             <div slot="footer">
-              <sl-button variant="primary" @click=${() => gotoRoute(`/addtrip/${vehicle.registration}`)} pill>Add Trip</sl-button>
-              <sl-button variant="secondary" @click=${() => gotoRoute(`/trips/${vehicle.registration}`)} pill>View Trips</sl-button>
+              <sl-button variant="primary" @click=${() => gotoRoute(`/addtrip?${vehicle.registration}`)} pill>Add Trip</sl-button>
+              <sl-button variant="secondary" @click=${() => gotoRoute(`/trips?${vehicle.registration}`)} pill>View Trips</sl-button>
             </div>
           </sl-card>
         `)}
