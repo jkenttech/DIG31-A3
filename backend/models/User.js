@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema
-import { Utils } from '../utils.js';
-const _utils = new Utils();
+import { Utils } from '../utils/tools.js';
 
 // schema
 const userSchema = new mongoose.Schema({
@@ -30,7 +29,7 @@ const userSchema = new mongoose.Schema({
 userSchema.pre('save', function(next) {
   // check if password is present and is modifed  
   if( this.password && this.isModified() ){
-      this.password = _utils.hashPassword(this.password);
+      this.password = Utils.hashPassword(this.password);
   }
   next()
 })

@@ -18,6 +18,7 @@ export const router = express.Router();
 // setup routes
 import { router as _rootRoute } from './routes/root.js';
 import { router as _userRoute } from './routes/user.js';
+import { router as _authRoute } from './routes/auth.js';
 
 const _port = _config.port;
 const _ip = _config.ip;
@@ -35,6 +36,7 @@ mongoose.connect(_config.dbConnectionString)
     app.use('*', cors());
     app.use(_config.rootEndpoint, _rootRoute);
     app.use(_config.userEndpoint, _userRoute);
+    app.use(_config.authEndpoint, _authRoute);
 
     // throw 404 if no route is found
     app.use((req, res)=>{ res.status(404).send('404') });

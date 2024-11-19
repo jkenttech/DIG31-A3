@@ -2,12 +2,14 @@
 import homeView from './views/pages/home'
 import fourOFourView from './views/pages/404'
 import signupView from './views/pages/signup'
+import signinView from './views/pages/signin'
 
 // define routes
 const routes = {
 	'/': homeView,	
 	'404' : fourOFourView,
 	'/signup': signupView,	
+	'/signin': signinView,	
 }
 
 class Router {

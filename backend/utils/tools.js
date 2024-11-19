@@ -1,3 +1,7 @@
+import * as _config from './config.js';
+import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
+
 /* global console */
 
 let white = "0m";
@@ -11,9 +15,9 @@ let criticalColour = "31m";
 
 export class Logger{
     constructor(){
-	this.white = white;
-	this.colour = colour;
-	this.TST = "TST";
+	    this.white = white;
+	    this.colour = colour;
+	    this.TST = "TST";
         this.DBG = "DBG";
         this.INF = "INF";
         this.WRN = "WRN";
@@ -46,3 +50,41 @@ export class Logger{
     log.write(log.CRT, `CRT log level`);
 })();
 
+export class Utils {
+    static hashPassword(password){
+        const salt = crypto.randomBytes(16).toString('hex');
+        const hash = crypto.pbkdf2Sync(password, salt, 2048, 32, 'sha512').toString('hex');
+        return [salt, hash].join('$');
+    }
+
+    static verifyHash(password, original){
+        const originalHash = original.split('$')[1];
+        const salt = original.split('$')[0];
+        const hash = crypto.pbkdf2Sync(password, salt, 2048, 32, 'sha512').toString('hex');
+        return hash === originalHash;
+    }
+
+    static generateAccessToken(user){
+        return jwt.sign(user, _config.accessToken, { expiresIn: '7d'})
+    }
+
+    static authenticateToken(req, res, next){
+        const authHeader = req.headers['authorization']        
+        const token = authHeader && authHeader.split(' ')[1]
+        if(token == null){
+            return res.status(401).json({
+                message: "Unauthorised"
+            })
+        } 
+        
+        jwt.verify(token, _config.accessToken, (err, user) => {
+            if(err) {
+                return res.status(401).json({
+                    message: "Unauthorised"
+                })
+            }
+            req.user = user
+            next()
+        })
+    }
+}
