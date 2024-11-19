@@ -2,6 +2,7 @@ import express from 'express';
 import { User } from '../models/User.js';
 import { Utils } from '../utils/tools.js';
 import jwt from 'jsonwebtoken';
+import * as _config from '../utils/config.js';
 
 export const router = express.Router()
 
@@ -53,7 +54,7 @@ router.get('/validate', (req, res) => {
   // get token
   let token = req.headers['authorization'].split(' ')[1];
   // validate token using jwt
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
+  jwt.verify(token, _config.accessToken, (err, authData) => {
     if(err){
       console.log(err)
       return res.status(401).json({

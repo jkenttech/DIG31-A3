@@ -6,7 +6,7 @@ class App {
   constructor(){
     this.name = _config.appName
     this.version = _config.version
-    this.apiBase = _config.apiBase
+    this.apiBase = "http://localhost:3030"
     this.rootEl = document.getElementById("root")
   }
   
