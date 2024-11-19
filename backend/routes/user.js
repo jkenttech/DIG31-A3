@@ -2,6 +2,7 @@ import express from 'express';
 import * as _config from '../utils/config.js';
 import { _log } from '../app.js';
 import { User } from '../models/User.js';
+import { Vehicle } from '../models/Vehicle.js';
 
 export const router = express.Router();
 
@@ -37,3 +38,8 @@ router.post(_config.rootEndpoint, (req, res)=>{
         })
     })
 });
+
+router.get("/vehicles/:email", (req,res)=>{
+    Vehicle.find({email: req.params.email})
+    .then(async dbVehicles => res.send(dbVehicles));
+})
