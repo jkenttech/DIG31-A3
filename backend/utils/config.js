@@ -7,6 +7,7 @@ export const frontend = "localhost:3030";
 export const rootEndpoint = "/";
 export const userEndpoint = "/user";
 export const authEndpoint = "/auth";
+export const vehicleEndpoint = "/vehicle";
 
 // DB Connection string
 const dbUser = "logbookUser";
