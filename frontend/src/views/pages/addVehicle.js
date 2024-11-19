@@ -27,6 +27,7 @@ class AddVehicleView{
 
   render(){
     const template = html`      
+    <va-app-header title="Home"></va-app-header>
     <div>
         <h1>Add Vehicle</h1>
         <sl-form class="form-signup" @sl-submit=${this.addVehicleSubmitHandler}>

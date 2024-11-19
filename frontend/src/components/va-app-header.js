@@ -162,7 +162,7 @@ customElements.define('va-app-header', class AppHeader extends LitElement {
         <a href="/" @click="${anchorRoute}">Home</a>        
         <sl-dropdown>
           <sl-menu>            
-            <sl-menu-item @click="${() => gotoRoute('/profile')}">Profile</sl-menu-item>
+            <sl-menu-item @click="${() => gotoRoute('/addvehicle')}">Add Vehicle</sl-menu-item>
             <sl-menu-item @click="${() => gotoRoute('/editProfile')}">Edit Profile</sl-menu-item>
             <sl-menu-item @click="${() => Auth.signOut()}">Sign Out</sl-menu-item>
           </sl-menu>
