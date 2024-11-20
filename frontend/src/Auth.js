@@ -102,7 +102,8 @@ export class Auth {
     const response = await fetch(`${App.apiBase}/auth/signin`, {
       method: 'POST',      
       body: userData,
-      mode: "cors"
+      mode: "cors",
+      referrerPolicy: "no-referrer"
     })
 
     // if response not ok
