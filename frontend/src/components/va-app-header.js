@@ -150,24 +150,6 @@ customElements.define('va-app-header', class AppHeader extends LitElement {
 
     <header class="app-header">
       <sl-icon-button class="hamburger-btn" name="list" @click="${this.hamburgerClick}" style="font-size: 1.5em;"></sl-icon-button>       
-      
-      <div class="app-header-main">
-        ${this.title ? html`
-          <h1 class="page-title">${this.title}</h1>
-        `:``}
-        <slot></slot>
-      </div>
-
-      <nav class="app-top-nav">
-        <a href="/" @click="${anchorRoute}">Home</a>        
-        <sl-dropdown>
-          <sl-menu>            
-            <sl-menu-item @click="${() => gotoRoute('/addvehicle')}">Add Vehicle</sl-menu-item>
-            <sl-menu-item @click="${() => gotoRoute('/editProfile')}">Edit Profile</sl-menu-item>
-            <sl-menu-item @click="${() => Auth.signOut()}">Sign Out</sl-menu-item>
-          </sl-menu>
-        </sl-dropdown>
-      </nav>
     </header>
 
     <sl-drawer class="app-side-menu" placement="left">
@@ -175,6 +157,7 @@ customElements.define('va-app-header', class AppHeader extends LitElement {
       <nav class="app-side-menu-items">
         <a href="/" @click="${this.menuClick}">Home</a>
         <a href="/profile" @click="${this.menuClick}">Profile</a>
+        <a href="/addvehicle" @click="${this.menuClick}">Add Vehicle</a>
         <a href="#" @click="${() => Auth.signOut()}">Sign Out</a>
       </nav>  
     </sl-drawer>

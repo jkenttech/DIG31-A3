@@ -6,6 +6,7 @@ import signinView from './views/pages/signin'
 import addVehicleView from './views/pages/addVehicle'
 import addTripView from './views/pages/addTrip'
 import vehicleTripView from './views/pages/vehicleTrip'
+import profileView from './views/pages/profile'
 
 // define routes
 const routes = {
@@ -16,6 +17,7 @@ const routes = {
 	'/addvehicle': addVehicleView,
 	'/addtrip': addTripView,
 	'/vehicle': vehicleTripView,
+	'/profile': profileView,
 }
 
 class Router {
