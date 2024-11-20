@@ -1,6 +1,7 @@
 import Router from './Router'
 import { Auth } from './Auth'
 import * as _config from './utils/config.js'
+import Toast from './Toast'
 
 class App {
   constructor(){
@@ -12,6 +13,7 @@ class App {
   
   init() { 
     console.log("App.init")
+    Toast.init()   
     
     // Authentication check    
     Auth.check(() => {

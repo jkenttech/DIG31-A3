@@ -2,6 +2,7 @@ import App from './App'
 import Router, { gotoRoute } from './Router'
 import {html, render } from 'lit-html'
 import splash from './views/partials/splash'
+import Toast from './Toast'
 
 export class Auth {
 
@@ -22,10 +23,13 @@ export class Auth {
       const err = await response.json()
       if(err) console.log(err)
       // show error      
+      Toast.show(`Email already in use`)   
       // run fail() functon if set
       if(typeof fail == 'function') fail()
+      return
     }
     /// sign up success - show toast and redirect to sign in page
+    Toast.show('Account created, please sign in')        
     // redirect to signin
     gotoRoute('/signin')
   }
@@ -42,6 +46,7 @@ export class Auth {
       const err = await response.json()
       if(err) console.log(err)
       // show error      
+      Toast.show(`Problem signing in: ${err.message}`, 'error')   
       // run fail() functon if set
       if(typeof fail == 'function') fail()
     }
@@ -103,12 +108,14 @@ export class Auth {
       const err = await response.json()
       if(err) console.log(err)
       // show error      
+      Toast.show(`Username or password incorrect`, 'error')   
       // run fail() functon if set
       if(typeof fail == 'function') fail()
     }
 
     // sign in success
     const data = await response.json()
+    Toast.show(`Welcome  ${data.user.firstName}`)
     // save access token (jwt) to local storage
     localStorage.setItem('accessToken', data.accessToken)
     // set current user
@@ -127,6 +134,7 @@ export class Auth {
     // check local token is there
     if(!localStorage.accessToken){
       // no local token!
+      Toast.show("Please sign in")    
       // redirect to sign in page      
       gotoRoute('/signin')
       return
@@ -147,6 +155,7 @@ export class Auth {
       if(err) console.log(err)
       // delete local token
       localStorage.removeItem('accessToken')
+      Toast.show("session expired, please sign in")
       // redirect to sign in      
       gotoRoute('/signin')
       return
@@ -164,6 +173,7 @@ export class Auth {
   static signOut(){
     // delete local token
     localStorage.removeItem('accessToken')       
+    Toast.show("You are signed out")
     // redirect to sign in    
     gotoRoute('/signin')
     // unset currentUser

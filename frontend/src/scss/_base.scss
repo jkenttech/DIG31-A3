@@ -21,3 +21,10 @@ sl-card {
     justify-content: space-between;
     align-items: center;
 }
+
+#toasts{
+    display: grid;
+    justify-items: center;
+    font-size: 24px;
+    color: var(--warning-text);
+}
