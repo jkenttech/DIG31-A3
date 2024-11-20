@@ -31,7 +31,7 @@ class ProfileView{
       <div class="page-content page-centered">      
         <div class="signup-box">
 	  <div class="left">
-            <img class="signinup-logo" src="/images/signup-placeholder.jpg">
+            <img class="signinup-logo" src="/images/car-placeholder.jpg">
 	  </div>
 	  <div class="right">
             <h1>Edit Profile for ${Auth.currentUser.email}</h1>
