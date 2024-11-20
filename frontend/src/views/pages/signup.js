@@ -27,6 +27,7 @@ class SignUpView{
 
   render(){
     const template = html`      
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.18.0/cdn/components/radio/radio.js"></script>
       <div class="page-content page-centered">      
         <div class="signup-box">
 	  <div class="left">
@@ -47,6 +48,14 @@ class SignUpView{
               <div class="input-group">
                 <sl-input name="password" type="password" placeholder="Password" required toggle-password></sl-input>
               </div>            
+
+              <sl-radio-group label="accessLevel" name="accessLevel">
+                <p>Select account type:
+                  <sl-radio name="accessLevel" value="1">User</sl-radio>
+                  <sl-radio name="accessLevel" value="2">Admin</sl-radio>
+                </p>
+              </sl-radio-group>
+
               <sl-button type="primary" class="submit-btn" submit style="width: 100%;">Sign Up</sl-button>
             </sl-form>
             <p>Have an account? <a href="/signin" @click=${anchorRoute}>Sign In</a></p>

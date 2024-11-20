@@ -22,6 +22,12 @@ const userSchema = new mongoose.Schema({
   },
   avatar: {
     type: String    
+  },
+  showGuide: {
+    type: Boolean
+  },
+  accessLevel: {
+    type: Number
   }
 }, { timestamps: true })
 

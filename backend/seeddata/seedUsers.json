@@ -3,12 +3,16 @@
     "lastName": "1",
     "email": "number@one.com",
     "password": "123456",
-    "avatar": ""
+    "avatar": "",
+    "showGuide": true,
+    "accessLevel": 1
 },
 {
     "firstName": "Second",
     "lastName": "2",
     "email": "number@two.com",
     "password": "234567",
-    "avatar": ""
+    "avatar": "",
+    "showGuide": true,
+    "accessLevel": 2
 }]

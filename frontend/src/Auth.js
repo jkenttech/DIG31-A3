@@ -10,6 +10,7 @@ export class Auth {
   }
   
   static async signUp(userData, fail = false){  
+    userData.append("showGuide", true);
     const response = await fetch(`${App.apiBase}/user`, {
       method: 'POST',      
       body: userData
