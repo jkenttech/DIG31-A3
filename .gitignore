@@ -8,3 +8,4 @@ package-lock.json
 /frontend/dist
 docs/~$-rubric-DIG31.docx
 docs/~$-rubric-DIG31.docx
+*.zip
