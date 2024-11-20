@@ -27,6 +27,7 @@ class ProfileView{
 
   render(){
     const template = html`      
+    <va-app-header title="Profile"></va-app-header>
       <div class="page-content page-centered">      
         <div class="signup-box">
 	  <div class="left">
@@ -42,7 +43,7 @@ class ProfileView{
                 <sl-input name="lastName" type="text" value="${Auth.currentUser.lastName}" required></sl-input>
               </div>
               <div class="input-group">
-                <sl-input name="email" type="email" value="${Auth.currentUser.email}" required></sl-input>
+                <sl-input name="email" type="email" value="${Auth.currentUser.email}" required hidden></sl-input>
               </div>
               <div class="input-group">
                 <sl-input name="password" type="password" placeholder="Current Password" required toggle-password></sl-input>

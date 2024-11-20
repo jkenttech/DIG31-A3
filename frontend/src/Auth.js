@@ -30,7 +30,7 @@ export class Auth {
   }
 
   static async updateProfile(userData, fail = false){  
-    const response = await fetch(`${App.apiBase}/user/${Auth.currentUser._id}`, {
+    const response = await fetch(`${App.apiBase}/user`, {
       method: 'PUT',      
       body: userData
     })
@@ -44,9 +44,8 @@ export class Auth {
       // run fail() functon if set
       if(typeof fail == 'function') fail()
     }
-    /// sign up success - show toast and redirect to sign in page
     // redirect to signin
-    gotoRoute('/profile')
+    gotoRoute('/')
   }
 
   static async addVehicle(userData, fail = false){  

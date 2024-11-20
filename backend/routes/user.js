@@ -54,12 +54,14 @@ router.put(_config.rootEndpoint, (req, res)=>{
         return res.status(400).json({
             message: "incorrect password supplied"
         })
-        } else if(req.body.newPassword != req.body.confirmPassword){
+        } else if(req.body.newPassword != req.body.newPasswordConfirm){
         return res.status(400).json({
             message: "new password fields do not match"
         })
         }
     
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
     user.password = req.body.newPassword;
 
     // update profile       
