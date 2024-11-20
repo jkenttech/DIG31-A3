@@ -15,7 +15,6 @@ class HomeView {
   }
 
   async getVehicles(){
-    console.log(`currentUser.email is ${Auth.currentUser.email}`)
     try {
       this.vehicles = await VehicleAPI.getVehiclesByEmail(Auth.currentUser.email)      
       this.render()
