@@ -67,6 +67,7 @@ export class Auth {
       const err = await response.json()
       if(err) console.log(err)
       // show error      
+      Toast.show(`Error adding Vehicle`)
       // run fail() functon if set
       if(typeof fail == 'function') fail()
     }
@@ -88,6 +89,7 @@ export class Auth {
       const err = await response.json()
       if(err) console.log(err)
       // show error      
+      Toast.show(`Error adding trip`)
       // run fail() functon if set
       if(typeof fail == 'function') fail()
     }
