@@ -34,6 +34,14 @@ userSchema.pre('save', function(next) {
   next()
 })
 
+userSchema.pre('findOneAndUpdate', function(next) {
+  // check if password is present and is modifed  
+  if( this.password && this.isModified() ){
+      this.password = Utils.hashPassword(this.password);
+  }
+  next()
+})
+
 // model
 export const User = mongoose.model('User', userSchema)
 

@@ -45,7 +45,7 @@ class ProfileView{
                 <sl-input name="email" type="email" value="${Auth.currentUser.email}" required></sl-input>
               </div>
               <div class="input-group">
-                <sl-input name="currentPassword" type="password" placeholder="Current Password" required toggle-password></sl-input>
+                <sl-input name="password" type="password" placeholder="Current Password" required toggle-password></sl-input>
               </div>            
               <div class="input-group">
                 <sl-input name="newPassword" type="password" placeholder="New Password" toggle-password></sl-input>
