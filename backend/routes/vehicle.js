@@ -2,6 +2,7 @@ import express from 'express';
 import * as _config from '../utils/config.js';
 import { _log } from '../app.js';
 import { Vehicle } from '../models/Vehicle.js';
+import { Trip } from '../models/Trip.js';
 
 export const router = express.Router();
 
@@ -41,4 +42,9 @@ router.post(_config.rootEndpoint, (req, res)=>{
 router.get("/:registration", (req,res)=>{
     Vehicle.findOne({registration: req.params.registration})
     .then(async dbVehicle => res.send(dbVehicle));
+})
+
+router.get("/:registration/trips", (req,res)=>{
+    Trip.find({registration: req.params.registration})
+    .then(async dbTrips => res.send(dbTrips));
 })
