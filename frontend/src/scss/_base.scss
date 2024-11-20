@@ -4,6 +4,10 @@
     justify-items: center;
 }
 
+sl-card {
+    border: 1px solid var(--brand-color);
+}
+
 .card-overview {
     max-width: 300px;
 }

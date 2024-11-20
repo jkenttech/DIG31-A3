@@ -4,18 +4,18 @@
   // base
   --base-txt-color: #222;
   --heading-color: #333;
-  --base-font-family: 'Work Sans', sans-serif;
-  --body-bg: #fff;
+  --base-font-family: 'Geist Mono', sans-serif;
+  --body-bg: #f1f1f1;
   
 
   // colors  
-  $brand-color: #3cc6b9;
+  $brand-color: #f5b041;
   --brand-color: #{$brand-color};
   --link-color: --brand-color;
   
   // app header
   --app-header-height: 60px;
-  --app-header-txt-color: #fff;
+  --app-header-txt-color: #f1f1f1;
   --app-header-title-font-size: 1.6em;
 
   // shoelace tokens
