@@ -54,6 +54,9 @@ class vehicleTripView{
   render(){
     const template = html`      
     <va-app-header title="Home"></va-app-header>
+    <h2>Trips for ${window.location.search.substring(1)}</h2><br>
+    <sl-button variant="primary" @click=${() => gotoRoute(`/addtrip?${window.location.search.substring(1)}`)} pill>Add Trip</sl-button>
+    <br>
     <div>
       ${this.render_trips(this.trips)}
     </div>
