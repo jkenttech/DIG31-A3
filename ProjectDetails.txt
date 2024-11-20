@@ -7,4 +7,4 @@ Backend URL : ec2-13-55-170-8.ap-southeast-2.compute.amazonaws.com
 Frontend URL : ec2-3-107-19-145.ap-southeast-2.compute.amazonaws.com
 
 Notes:
-I was not able to get image upload working.
+I was not able to comple the intro/guide or image upload/resize components.
