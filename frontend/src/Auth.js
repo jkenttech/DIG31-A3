@@ -99,7 +99,8 @@ export class Auth {
   }
 
   static async signIn(userData, fail = false){
-    const response = await fetch(`${App.apiBase}/auth/signin`, {
+    const response = await fetch(`/auth/signin`, {
+      host: App.apiBase,
       method: 'POST',      
       body: userData,
       mode: "cors",
