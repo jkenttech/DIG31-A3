@@ -7,7 +7,7 @@ class App {
   constructor(){
     this.name = _config.appName
     this.version = _config.version
-    this.apiBase = "ec2-13-55-170-8.ap-southeast-2.compute.amazonaws.com"
+    this.apiBase = "http://ec2-13-55-170-8.ap-southeast-2.compute.amazonaws.com"
     this.rootEl = document.getElementById("root")
   }
   
