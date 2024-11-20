@@ -101,7 +101,8 @@ export class Auth {
   static async signIn(userData, fail = false){
     const response = await fetch(`${App.apiBase}/auth/signin`, {
       method: 'POST',      
-      body: userData
+      body: userData,
+      mode: "cors"
     })
 
     // if response not ok
